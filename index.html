@@ -50,15 +50,18 @@
   <h2>ทำไมต้องเลือก OpenCode?</h2>
   <p style="font-size:0.8em; margin-bottom:20px;">ถ้าคุณเคยรู้สึกผิดหวังกับ AI Coding ที่ใช้อยู่ คุณไม่ใช่คนเดียว</p>
   <div class="agent-card">
-    <p><strong class="highlight-red">Claude Code</strong> — Lock ในระบบ Anthropic ใช้ได้แค่ Claude อย่างเดียว ปรับแต่งน้อย ToS จำกัด</p>
+    <p><strong class="highlight-red">Claude Code ($20-200/เดือน)</strong> — Lock เป็น Claude model อย่างเดียว มี Agent Teams (exp.) แต่ใช้ Claude เท่านั้น</p>
   </div>
   <div class="agent-card">
     <p><strong class="highlight-red">Codex CLI</strong> — OpenAI model อย่างเดียว เปลี่ยน model ไม่ได้ Agent จำกัด</p>
   </div>
   <div class="agent-card">
-    <p><strong class="highlight-red">Kimi Code / Qwen Code</strong> — Ecosystem ยังไม่สมบูรณ์ Multimodal ยังไม่ลึก</p>
+    <p><strong class="highlight-red">Kimi Code</strong> — Lock เป็น Kimi model แต่มี Agent Swarm สูงสุด 300 agents (beta)</p>
   </div>
-  <p style="margin-top:15px; font-size:0.85em;"><strong class="highlight-green">OpenCode</strong> — ฟรี! Open source! รองรับทุก model ปรับแต่งได้ลึก Agent orchestration เต็มรูปแบบ</p>
+  <div class="agent-card">
+    <p><strong class="highlight-red">Gemini CLI</strong> — ฟรี แต่ Lock เป็น Google Gemini model อย่างเดียว</p>
+  </div>
+  <p style="margin-top:15px; font-size:0.85em;"><strong class="highlight-green">OpenCode</strong> — ฟรี! Open source! <strong>รองรับทุก model ทุกค่าย</strong> ปรับแต่งได้ลึก Agent orchestration เต็มรูปแบบ</p>
 </section>
 
 <!-- Slide 3: Comparison Table -->
@@ -66,13 +69,13 @@
   <h2>OpenCode เทียบชั้นคู่แข่ง</h2>
   <table>
     <thead>
-      <tr><th>Feature</th><th>Claude Code</th><th>Codex CLI</th><th>Kimi Code</th><th>Qwen Code</th><th><span style="color:#4CAF50;">OpenCode</span></th></tr>
+      <tr><th>Feature</th><th>Claude Code</th><th>Codex CLI</th><th>Kimi Code</th><th>Gemini CLI</th><th><span style="color:#4CAF50;">OpenCode</span></th></tr>
     </thead>
     <tbody>
-      <tr><td>ราคา</td><td>$100/เดือน</td><td>API Cost</td><td>Subscription</td><td>Subscription</td><td><strong class="highlight-green">ฟรี</strong></td></tr>
-      <tr><td>Model ที่ใช้</td><td>Claude อย่างเดียว</td><td>GPT อย่างเดียว</td><td>Kimi อย่างเดียว</td><td>Qwen อย่างเดียว</td><td><strong class="highlight-green">ทุก model!</strong></td></tr>
-      <tr><td>ปรับแต่ง Agent</td><td>จำกัด</td><td>จำกัด</td><td>น้อย</td><td>น้อย</td><td><strong class="highlight-green">เต็มที่</strong></td></tr>
-      <tr><td>Agent Orchestration</td><td>ไม่มี</td><td>ไม่มี</td><td>ไม่มี</td><td>ไม่มี</td><td><strong class="highlight-green">13 Agent!</strong></td></tr>
+      <tr><td>ราคา</td><td>$20-200/เดือน</td><td>API Cost</td><td>Subscription</td><td><strong class="highlight-blue">ฟรี!</strong></td><td><strong class="highlight-green">ฟรี</strong></td></tr>
+      <tr><td>Model ที่ใช้</td><td>Claude เท่านั้น</td><td>GPT เท่านั้น</td><td>Kimi เท่านั้น</td><td>Gemini เท่านั้น</td><td><strong class="highlight-green">ทุกค่าย!</strong></td></tr>
+      <tr><td>ปรับแต่ง</td><td>Plugins, Skills, MCP, Hooks</td><td>จำกัด</td><td>น้อย</td><td>ปานกลาง</td><td><strong class="highlight-green">เต็มที่</strong></td></tr>
+      <tr><td>Agent Orchestration</td><td>Agent Teams (exp.)</td><td>ไม่มี</td><td>Agent Swarm (beta)</td><td>Generalist Agent</td><td><strong class="highlight-green">13 Agent + multi-model</strong></td></tr>
       <tr><td>LSP / AST-Grep</td><td>พื้นฐาน</td><td>พื้นฐาน</td><td>พื้นฐาน</td><td>พื้นฐาน</td><td><strong class="highlight-green">เต็มระบบ</strong></td></tr>
     </tbody>
   </table>
@@ -82,10 +85,10 @@
 <section data-audio="audio/slide-04.ogg">
   <h2>จุดเด่นที่ชนะขาด</h2>
   <ol style="font-size:0.82em;">
-    <li><strong class="highlight-gold">Multi-Model Orchestration</strong> — Kimi K2.6 + GPT 5.4 + Claude ทำงานร่วมกันใน workflow เดียว</li>
-    <li><strong class="highlight-gold">13 Specialized Agents</strong> — Agent เฉพาะทาง ทำงาน parallel execution ได้</li>
-    <li><strong class="highlight-gold">LSP + AST-Grep</strong> — แก้ไขโค้ดแม่นยำ ไม่พิมพ์ทับผิดบรรทัด</li>
-    <li><strong class="highlight-gold">Hash-Anchored Edit</strong> — ใช้ hash ยืนยัน content ก่อนแก้ ลด stale-line error</li>
+    <li><strong class="highlight-gold">Multi-Provider (BYOM)</strong> — ไม่ Lock ใช้ Claude + GPT + Gemini + Kimi + อื่นๆ ใน workflow เดียว</li>
+    <li><strong class="highlight-gold">13 Specialized Agents + Multi-Model</strong> — Agent เฉพาะทางที่เลือก model ตามงาน ไม่ใช่ model เดียวทั้งหมด</li>
+    <li><strong class="highlight-gold">LSP + AST-Grep + Hash-Anchored Edit</strong> — แก้ไขโค้ดแม่นยำ ไม่พิมพ์ทับผิดบรรทัด</li>
+    <li><strong class="highlight-gold">Claude Code Compatible</strong> — ใช้ hooks, skills, MCP ของ Claude Code ได้เลย</li>
     <li><strong class="highlight-gold">Multimodal Fully</strong> — ภาพ เสียง วิดีโอ เว็บ วิเคราะห์ได้หมด</li>
     <li><strong class="highlight-gold">คำสั่งเวทมนตร์ ultrawork</strong> — พิมพ์คำเดียว เปิดใช้งานทุก agent พร้อมกัน</li>
   </ol>

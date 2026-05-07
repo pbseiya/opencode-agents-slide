@@ -10,7 +10,7 @@
 
 ## สไลด์ที่ 2 — ทำไมต้องเลือก OpenCode
 
-ก่อนอื่น ผมอยากถามคุณกลับว่า คุณเคยรู้สึกผิดหวังกับเครื่องมือ AI Coding ที่ใช้งานอยู่หรือไม่ ถ้าเคย คุณไม่ใช่คนเดียว เครื่องมือส่วนใหญ่ที่คุณรู้จัก Claude Code ดีแต่ถูก lock ในระบบ Anthropic ใช้ได้แค่ Claude อย่างเดียว Codex CLI ของ OpenAI ก็เช่นกัน คุณไม่สามารถเปลี่ยน model หรือปรับแต่งอะไรได้ Kimi Code และ Qwen Code ก็มีข้อจำกัดในการตั้งค่าลึก และทั้งหมดนี้คุณไม่สามารถเพิ่ม Agent เสริม หรือปรับแต่ง workflow ได้ตามใจ OpenCode แตกต่างตรงที่นี่ เขาคือเครื่องมือที่เปิดกว้าง ปรับได้ทุกอย่าง รวม model จากหลายค่าย แล้วยังให้คุณควบคุม Agent ได้อย่างเต็มที่ ใช้ Kimi สำหรับงานรวดเร็ว GPT สำหรับงานลึก Claude สำหรับงานวิเคราะห์ ทั้งหมดนี้ในเครื่องมือเดียว ไม่ต้องสลับไปมา
+ก่อนอื่น ให้ผมพาดูภาพรวมตลาด AI Coding Agent ตอนนี้ Claude Code เป็นเครื่องมือที่ดีมาก มี Agent Teams ที่เป็น multi-agent orchestration แล้ว แต่ lock ใช้ Claude model อย่างเดียว มี plugins skills MCP และ hooks แต่ก็ยังอยู่ใน ecosystem Anthropic Kimi Code ก็มี Agent Swarm สูงสุดถึง 300 agents ใน beta แล้ว Gemini CLI ฟรี มี Agent Teams และ Generalist Agent แต่ก็ lock เป็น Google Gemini model Codex CLI ก็ lock เป็น GPT อย่างเดียว OpenCode ต่างตรงที่ไม่ lock คุณสามารถใช้ Claude GPT Gemini Kimi Grok ทั้งหมดใน workflow เดียวกัน แต่ละ agent สามารถเลือก model ที่เหมาะสมกับงานตัวเองได้ Kimi สำหรับงานรวดเร็ว GPT สำหรับงานลึก Claude สำหรับงานวิเคราะห์ Gemini สำหรับงาน visual ทั้งหมดนี้ในเครื่องมือเดียว ไม่ต้องสลับไปมาครับ
 
 ---
 
@@ -22,13 +22,13 @@
 
 ## สไลด์ที่ 4 — จุดเด่นที่ชนะขาด
 
-แล้วอะไรที่ทำให้ OpenCode ชนะขาด จุดแรกคือการผสาน model หลายตัวใน workflow เดียว คุณสามารถใช้ Kimi K2.6 สำหรับงานเร็ว GPT 5.4 สำหรับงานลึก Claude สำหรับงานวิเคราะห์โค้ด complex จุดที่สองคือระบบ Agent Orchestration ของ Oh My OpenAgent ที่มี Agent เฉพาะทางถึงสิบสามตัว ทำงานแบบ parallel execution ได้จุดที่สามคือ LSP และ AST-Grep ที่ทำให้ agent แก้ไขโค้ดได้แม่นยำ ไม่พิมพ์ทับผิดบรรทัดเหมือนคู่แข่ง จุดที่สี่คือระบบ Hash-Anchored Edit ที่ใช้ hash ยืนยัน content ก่อนแก้ไข ลด stale-line error ลงไปได้มาก จุดที่ห้าคือรองรับ Multimodal fully ไม่ว่าจะวิเคราะห์ภาพ วิดีโอ เสียง หรือเว็บไซต์ และจุดสุดท้ายคือคำสั่งเวทมนตร์ ultrawork ที่เปิดใช้งานทุก agent พร้อมกันแค่พิมพ์คำเดียว
+แล้วอะไรที่ทำให้ OpenCode ชนะขาด จุดแรกคือ multi-provider หรือ Bring Your Own Model ที่ไม่ lock คุณสามารถใช้ Kimi K2.6 สำหรับงานเร็ว GPT 5.4 สำหรับงานลึก Claude สำหรับงานวิเคราะห์ Gemini สำหรับงาน visual ทั้งหมดใน workflow เดียว จุดที่สองคือระบบ Agent Orchestration ของ Oh My OpenAgent ที่มี Agent เฉพาะทางถึงสิบสามตัว แต่ละตัวเลือก model ตามจุดเด่นของตัวเอง ทำงานแบบ parallel execution ได้ จุดที่สามคือ LSP และ AST-Grep และ Hash-Anchored Edit ที่ทำให้ agent แก้ไขโค้ดได้แม่นยำ ลด stale-line error จุดที่สี่คือ Claude Code Compatible ใช้ hooks skills MCP ของ Claude Code ได้โดยตรง จุดที่ห้าคือรองรับ Multimodal fully ภาพ เสียง วิดีโอ เว็บ และจุดสุดท้ายคือคำสั่งเวทมนตร์ ultrawork ที่เปิดใช้งานทุก agent พร้อมกันแค่พิมพ์คำเดียว
 
 ---
 
 ## สไลด์ที่ 5 — OpenCode คืออะไร
 
-OpenCode คือ AI-native coding IDE ที่รันบน terminal โดยใช้สถาปัตยกรรม TUI text user interface ที่ไม่มีการกระพริบหน้าจอ ไม่หน่วง ผู้สร้างเขาพูดไว้ดีว่า ถ้าคุณเคยเปลี่ยนจาก Windows มาใช้ Linux และรู้สึกตื่นเต้นที่สามารถปรับแต่งทุกอย่างได้ OpenCode คือความรู้สึกนั้น ในโลกที่เครื่องมือสำเร็จรูปครอบงำ OpenCode ให้คุณควบคุมทุกอย่างตั้งแต่ LSP linter formatter ไปจนถึง model provider และ agent workflow คุณสามารถใช้ ChatGPT Claude Gemini ทั้งหมดที่คุณ subscribe อยู่แล้วโดยไม่ต้องเสียเงินเพิ่ม และสิ่งที่ดีที่สุดคือ OpenCode ฟรี open source ไม่มี paywall
+OpenCode คือ AI-native coding IDE ที่รันบน terminal โดยใช้สถาปัตยกรรม TUI text user interface ที่ไม่มีการกระพริบหน้าจอ ไม่หน่วง ผู้สร้างเขาพูดไว้ดีว่า ถ้าคุณเคยเปลี่ยนจาก Windows มาใช้ Linux และรู้สึกตื่นเต้นที่สามารถปรับแต่งทุกอย่างได้ OpenCode คือความรู้สึกนั้น ในโลกที่เครื่องมือสำเร็จรูปครอบงำ OpenCode ให้คุณควบคุมทุกอย่างตั้งแต่ LSP linter formatter ไปจนถึง model provider และ agent workflow คุณสามารถใช้ ChatGPT Claude Gemini Kimi Grok ทั้งหมดที่คุณ subscribe อยู่แล้วโดยไม่ต้องเสียเงินเพิ่ม รวมถึงใช้ hooks skills MCP ของ Claude Code ได้โดยตรง และที่ดีที่สุดคือ OpenCode ฟรี open source ไม่มี paywall
 
 ---
 
