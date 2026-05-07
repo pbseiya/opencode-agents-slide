@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenCode Agents Best Practice</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/black.css">
+<style>
+.reveal { font-family: 'Sarabun', 'Kanit', sans-serif; }
+.reveal h1, .reveal h2, .reveal h3 { font-family: 'Kanit', sans-serif; text-transform: none; }
+.reveal .slides section { text-align: left; }
+.reveal table { font-size: 0.65em; width: 100%; }
+.reveal table th, .reveal table td { padding: 12px; border-bottom: 1px solid #555; }
+.audio-bar { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100;
+  background: rgba(0,0,0,0.8); padding: 10px 20px; border-radius: 30px; display: flex; align-items: center; gap: 10px; }
+.audio-bar button { background: #4CAF50; border: none; color: white; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 14px; }
+.audio-bar button:hover { background: #45a049; }
+.slide-num { color: #aaa; font-size: 14px; }
+.reveal pre { font-size: 0.45em; background: #1a1a1a; padding: 15px; border-radius: 8px; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<section data-audio="audio/slide-01.ogg">
+  <h1>OpenCode + Oh My OpenAgent</h1>
+  <h3 style="color:#4CAF50;">คู่มือเลือกใช้ Agent ให้ถูกต้อง</h3>
+  <p style="margin-top:40px; font-size:0.8em; color:#888;">เลื่อนด้วยลูกศร ← → หรือคลิกที่ลูกศรด้านล่าง</p>
+</section>
+
+<section data-audio="audio/slide-02.ogg">
+  <h2>ทำไมต้องรู้จัก Agent?</h2>
+  <ul>
+    <li>OpenCode มี AI Agents หลายตัวช่วยเขียนโค้ด</li>
+    <li><span style="color:#4CAF50;">เลือกถูก</span> = งานเสร็จเร็ว ไม่เปลืองเครดิต</li>
+    <li><span style="color:#f44336;">เลือกผิด</span> = agent ทำงานซ้ำ เสียเวลา ตอบคำถามวนไปมา</li>
+  </ul>
+</section>
+
+<section data-audio="audio/slide-03.ogg">
+  <h2>Agent มีกี่ตัว?</h2>
+  <p>ระบบแบ่งเป็น <strong>3 ระดับ</strong>:</p>
+  <ol>
+    <li><strong style="color:#FFD700;">Agents</strong> — สั่งการระดับสูง (Sisyphus, Prometheus, Atlas, Hephaestus)</li>
+    <li><strong style="color:#87CEEB;">Core Agents</strong> — แบ่งประเภทงาน (research, explore, development)</li>
+    <li><strong style="color:#90EE90;">Tools</strong> — ลงมือทำจริง (terminal, file, code_execution)</li>
+  </ol>
+</section>
+
+<section data-audio="audio/slide-04.ogg">
+  <h2>กฎทอง</h2>
+  <h1 style="text-align:center; color:#FFD700;">Agents > Core > Tools</h1>
+  <ul>
+    <li>อย่าเลือก <strong>Tools</strong> เอง</li>
+    <li>ให้ <strong>Agents</strong> ตัดสินใจสั่งการอัตโนมัติ</li>
+  </ul>
+</section>
+
+<section data-audio="audio/slide-05.ogg">
+  <h2>Sisyphus — ตัวเริ่มต้น</h2>
+  <p><strong>ใช้เมื่อ:</strong> งานง่าย แก้ไฟล์เดียว รู้ว่าต้องทำอะไร</p>
+  <ul>
+    <li>เปิด OpenCode TUI = Sisyphus อยู่แล้ว</li>
+    <li>พิมพ์คำสั่งตรงๆ ได้เลย</li>
+  </ul>
+  <p style="margin-top:20px;"><strong>ทางลัด:</strong> พิมพ์ <code>ultrawork</code> หรือ <code>ulw</code></p>
+</section>
+
+<section data-audio="audio/slide-06.ogg">
+  <h2>Prometheus — ผู้วางแผน</h2>
+  <p><strong>ใช้เมื่อ:</strong> งานใหญ่ ไม่แน่ใจ scope</p>
+  <ol>
+    <li>กด <kbd>Tab</kbd> ที่ prompt → เลือก Prometheus</li>
+    <li>ตอบคำถาม <strong>Interview</strong> กำหนดขอบเขต</li>
+    <li>อนุมัติแผนที่ agent สร้างให้</li>
+    <li>พิมพ์ <code>/start-work</code></li>
+  </ol>
+  <p style="margin-top:15px; color:#87CEEB;">Prometheus จะส่งต่อให้ Atlas ลงมือทำ</p>
+</section>
+
+<section data-audio="audio/slide-07.ogg">
+  <h2>Hephaestus — ผู้คิดลึก</h2>
+  <p><strong>ใช้เมื่อ:</strong> Debug ลึก หรือ Research ข้ามหลายไฟล์</p>
+  <p><strong>สัญญาณที่ต้องเรียก:</strong></p>
+  <ul>
+    <li>Agent ตัวอื่นติดปัญหาไม่รู้สาเหตุ</li>
+    <li>ต้องค้นคว้า domain ที่ไม่คุ้นเคย</li>
+    <li>ต้อง redesign กระทบหลายส่วน</li>
+  </ul>
+  <p style="margin-top:15px;">วิธีเรียก: กด <kbd>Tab</kbd> → เลือก Hephaestus</p>
+</section>
+
+<section data-audio="audio/slide-08.ogg">
+  <h2>ตารางตัดสินใจ</h2>
+  <table>
+    <thead><tr><th>งาน</th><th>Agent ที่ใช้</th></tr></thead>
+    <tbody>
+      <tr><td>แก้ typo / ไฟล์เดียว</td><td><strong>Sisyphus</strong></td></tr>
+      <tr><td>ทำ feature ใหม่</td><td><strong>Prometheus → Atlas</strong></td></tr>
+      <tr><td>Refactor ใหญ่</td><td><strong>Prometheus → Atlas → Hephaestus</strong></td></tr>
+      <tr><td>ไม่รู้ต้องทำอะไร</td><td><strong>Prometheus (interview)</strong></td></tr>
+      <tr><td>Debug ลึก / Research</td><td><strong>Hephaestus</strong></td></tr>
+      <tr><td>ขี้เกียจอธิบาย</td><td><strong>ultrawork</strong></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section data-audio="audio/slide-09.ogg">
+  <h2>สิ่งไม่ควรทำ</h2>
+  <ul>
+    <li>❌ อย่าเริ่มที่ <strong>Atlas</strong> โดยตรง ถ้าไม่มีแผน</li>
+    <li>❌ ไม่ต้องเรียก <strong>Oracle</strong> เอง — Sisyphus จะเรียกให้อัตโนมัติ</li>
+    <li>❌ อย่าพยายามเลือก <strong>Core</strong> หรือ <strong>Tools</strong> เอง</li>
+  </ul>
+</section>
+
+<section data-audio="audio/slide-10.ogg">
+  <h1 style="text-align:center;">สรุปง่าย ๆ</h1>
+  <div style="text-align:center; margin-top:30px;">
+    <p>🔹 งานเล็ก → <strong>Sisyphus</strong> ตรงๆ</p>
+    <p>🔹 งานกลาง → <strong>Sisyphus + ultrawork</strong></p>
+    <p>🔹 งานใหญ่ → <strong>Prometheus → Atlas</strong></p>
+    <p>🔹 คิดลึก → เพิ่ม <strong>Hephaestus</strong></p>
+    <p style="margin-top:30px; color:#4CAF50; font-size:1.2em;">เลือกให้ถูก งานเสร็จไว ไม่เสียเวลา</p>
+  </div>
+</section>
+
+</div>
+</div>
+
+<div class="audio-bar">
+  <span class="slide-num">สไลด์ <span id="current">1</span> / 10</span>
+  <button id="playBtn" onclick="toggleAudio()">▶ เล่นเสียงบรรยาย</button>
+</div>
+
+<audio id="audioPlayer" preload="none"></audio>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: false,
+  controls: true,
+  progress: true,
+  transition: 'slide'
+});
+
+const player = document.getElementById('audioPlayer');
+const playBtn = document.getElementById('playBtn');
+const currentSpan = document.getElementById('current');
+
+function playSlideAudio() {
+  const slide = Reveal.getCurrentSlide();
+  const src = slide.getAttribute('data-audio');
+  if (src) {
+    player.src = src;
+    player.load();
+    player.play().catch(() => {});
+    playBtn.textContent = '⏸ หยุดเสียง';
+  }
+}
+
+function toggleAudio() {
+  if (player.paused) {
+    if (!player.src || player.ended) playSlideAudio();
+    else player.play();
+    playBtn.textContent = '⏸ หยุดเสียง';
+  } else {
+    player.pause();
+    playBtn.textContent = '▶ เล่นเสียงบรรยาย';
+  }
+}
+
+Reveal.on('slidechanged', event => {
+  currentSpan.textContent = event.indexh + 1;
+  player.pause();
+  playBtn.textContent = '▶ เล่นเสียงบรรยาย';
+  setTimeout(playSlideAudio, 300);
+});
+
+player.addEventListener('ended', () => {
+  playBtn.textContent = '▶ เล่นเสียงบรรยาย';
+});
+</script>
+</body>
+</html>
