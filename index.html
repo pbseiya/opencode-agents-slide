@@ -3,21 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OpenCode Agents Best Practice</title>
+<title>OpenCode + Oh My OpenAgent - Ultimate Guide</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/black.css">
 <style>
 .reveal { font-family: 'Sarabun', 'Kanit', sans-serif; }
 .reveal h1, .reveal h2, .reveal h3 { font-family: 'Kanit', sans-serif; text-transform: none; }
 .reveal .slides section { text-align: left; }
-.reveal table { font-size: 0.65em; width: 100%; }
-.reveal table th, .reveal table td { padding: 12px; border-bottom: 1px solid #555; }
+.reveal table { font-size: 0.55em; width: 100%; }
+.reveal table th, .reveal table td { padding: 10px; border-bottom: 1px solid #555; }
+.reveal table th { background: rgba(255,255,255,0.1); }
 .audio-bar { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100;
-  background: rgba(0,0,0,0.8); padding: 10px 20px; border-radius: 30px; display: flex; align-items: center; gap: 10px; }
+  background: rgba(0,0,0,0.85); padding: 10px 20px; border-radius: 30px; display: flex; align-items: center; gap: 10px; border: 1px solid #333; }
 .audio-bar button { background: #4CAF50; border: none; color: white; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 14px; }
 .audio-bar button:hover { background: #45a049; }
 .slide-num { color: #aaa; font-size: 14px; }
-.reveal pre { font-size: 0.45em; background: #1a1a1a; padding: 15px; border-radius: 8px; }
+.reveal pre { font-size: 0.4em; background: #1a1a1a; padding: 15px; border-radius: 8px; }
+.reveal blockquote { border-left: 4px solid #4CAF50; padding-left: 15px; font-style: italic; color: #ccc; }
+.highlight-green { color: #4CAF50; }
+.highlight-gold { color: #FFD700; }
+.highlight-blue { color: #87CEEB; }
+.highlight-red { color: #f44336; }
+.agent-card { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin: 8px 0; border-left: 3px solid #4CAF50; }
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -25,75 +32,241 @@
 <div class="reveal">
 <div class="slides">
 
+<!-- Slide 1: Title -->
 <section data-audio="audio/slide-01.ogg">
-  <h1>OpenCode + Oh My OpenAgent</h1>
-  <h3 style="color:#4CAF50;">คู่มือเลือกใช้ Agent ให้ถูกต้อง</h3>
-  <p style="margin-top:40px; font-size:0.8em; color:#888;">เลื่อนด้วยลูกศร ← → หรือคลิกที่ลูกศรด้านล่าง</p>
-</section>
-
-<section data-audio="audio/slide-02.ogg">
-  <h2>ทำไมต้องรู้จัก Agent?</h2>
-  <ul>
-    <li>OpenCode มี AI Agents หลายตัวช่วยเขียนโค้ด</li>
-    <li><span style="color:#4CAF50;">เลือกถูก</span> = งานเสร็จเร็ว ไม่เปลืองเครดิต</li>
-    <li><span style="color:#f44336;">เลือกผิด</span> = agent ทำงานซ้ำ เสียเวลา ตอบคำถามวนไปมา</li>
+  <h1 style="font-size:1.6em;">OpenCode + Oh My OpenAgent</h1>
+  <h2 style="color:#4CAF50;">คู่มือสู่ AI Coding Agent ที่ทรงพลังที่สุด</h2>
+  <ul style="margin-top:30px; font-size:0.75em;">
+    <li>รู้จัก 13 Agents + 13 Models สำหรับงานเฉพาะทาง</li>
+    <li>เปรียบเทียบกับ Claude Code, Codex CLI, Kimi Code, Qwen Code</li>
+    <li>Multimodal: ภาพ, เสียง, วิดีโอ, เว็บ</li>
+    <li>Code Review Agent แบบ read-only ปลอดภัย</li>
   </ul>
+  <p style="margin-top:40px; font-size:0.7em; color:#888;">เลื่อนด้วยลูกศร ← → | คลิก เล่นเสียงบรรยาย</p>
 </section>
 
+<!-- Slide 2: Why OpenCode? -->
+<section data-audio="audio/slide-02.ogg">
+  <h2>ทำไมต้องเลือก OpenCode?</h2>
+  <p style="font-size:0.8em; margin-bottom:20px;">ถ้าคุณเคยรู้สึกผิดหวังกับ AI Coding ที่ใช้อยู่ คุณไม่ใช่คนเดียว</p>
+  <div class="agent-card">
+    <p><strong class="highlight-red">Claude Code</strong> — Lock ในระบบ Anthropic ใช้ได้แค่ Claude อย่างเดียว ปรับแต่งน้อย ToS จำกัด</p>
+  </div>
+  <div class="agent-card">
+    <p><strong class="highlight-red">Codex CLI</strong> — OpenAI model อย่างเดียว เปลี่ยน model ไม่ได้ Agent จำกัด</p>
+  </div>
+  <div class="agent-card">
+    <p><strong class="highlight-red">Kimi Code / Qwen Code</strong> — Ecosystem ยังไม่สมบูรณ์ Multimodal ยังไม่ลึก</p>
+  </div>
+  <p style="margin-top:15px; font-size:0.85em;"><strong class="highlight-green">OpenCode</strong> — ฟรี! Open source! รองรับทุก model ปรับแต่งได้ลึก Agent orchestration เต็มรูปแบบ</p>
+</section>
+
+<!-- Slide 3: Comparison Table -->
 <section data-audio="audio/slide-03.ogg">
-  <h2>Agent มีกี่ตัว?</h2>
-  <p>ระบบแบ่งเป็น <strong>3 ระดับ</strong>:</p>
-  <ol>
-    <li><strong style="color:#FFD700;">Agents</strong> — สั่งการระดับสูง (Sisyphus, Prometheus, Atlas, Hephaestus)</li>
-    <li><strong style="color:#87CEEB;">Core Agents</strong> — แบ่งประเภทงาน (research, explore, development)</li>
-    <li><strong style="color:#90EE90;">Tools</strong> — ลงมือทำจริง (terminal, file, code_execution)</li>
+  <h2>OpenCode เทียบชั้นคู่แข่ง</h2>
+  <table>
+    <thead>
+      <tr><th>Feature</th><th>Claude Code</th><th>Codex CLI</th><th>Kimi Code</th><th>Qwen Code</th><th><span style="color:#4CAF50;">OpenCode</span></th></tr>
+    </thead>
+    <tbody>
+      <tr><td>ราคา</td><td>$100/เดือน</td><td>API Cost</td><td>Subscription</td><td>Subscription</td><td><strong class="highlight-green">ฟรี</strong></td></tr>
+      <tr><td>Model ที่ใช้</td><td>Claude อย่างเดียว</td><td>GPT อย่างเดียว</td><td>Kimi อย่างเดียว</td><td>Qwen อย่างเดียว</td><td><strong class="highlight-green">ทุก model!</strong></td></tr>
+      <tr><td>ปรับแต่ง Agent</td><td>จำกัด</td><td>จำกัด</td><td>น้อย</td><td>น้อย</td><td><strong class="highlight-green">เต็มที่</strong></td></tr>
+      <tr><td>Agent Orchestration</td><td>ไม่มี</td><td>ไม่มี</td><td>ไม่มี</td><td>ไม่มี</td><td><strong class="highlight-green">13 Agent!</strong></td></tr>
+      <tr><td>LSP / AST-Grep</td><td>พื้นฐาน</td><td>พื้นฐาน</td><td>พื้นฐาน</td><td>พื้นฐาน</td><td><strong class="highlight-green">เต็มระบบ</strong></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Slide 4: Why Oh My OpenAgent Wins -->
+<section data-audio="audio/slide-04.ogg">
+  <h2>จุดเด่นที่ชนะขาด</h2>
+  <ol style="font-size:0.82em;">
+    <li><strong class="highlight-gold">Multi-Model Orchestration</strong> — Kimi K2.6 + GPT 5.4 + Claude ทำงานร่วมกันใน workflow เดียว</li>
+    <li><strong class="highlight-gold">13 Specialized Agents</strong> — Agent เฉพาะทาง ทำงาน parallel execution ได้</li>
+    <li><strong class="highlight-gold">LSP + AST-Grep</strong> — แก้ไขโค้ดแม่นยำ ไม่พิมพ์ทับผิดบรรทัด</li>
+    <li><strong class="highlight-gold">Hash-Anchored Edit</strong> — ใช้ hash ยืนยัน content ก่อนแก้ ลด stale-line error</li>
+    <li><strong class="highlight-gold">Multimodal Fully</strong> — ภาพ เสียง วิดีโอ เว็บ วิเคราะห์ได้หมด</li>
+    <li><strong class="highlight-gold">คำสั่งเวทมนตร์ ultrawork</strong> — พิมพ์คำเดียว เปิดใช้งานทุก agent พร้อมกัน</li>
   </ol>
 </section>
 
-<section data-audio="audio/slide-04.ogg">
+<!-- Slide 5: What is OpenCode? -->
+<section data-audio="audio/slide-05.ogg">
+  <h2>OpenCode คืออะไร?</h2>
+  <p style="font-size:0.8em;">AI-native coding IDE บน Terminal แบบ <strong>TUI</strong> ไม่กระพริบ ไม่หน่วง</p>
+  <blockquote>"ถ้าคุณเคยเปลี่ยนจาก Windows มาใช้ Linux และรู้สึกตื่นเต้นที่ปรับแต่งทุกอย่างได้ OpenCode คือความรู้สึกนั้น"</blockquote>
+  <ul style="font-size:0.78em;">
+    <li>ปรับแต่ง <strong>LSP, Linter, Formatter</strong> ต่อไฟล์ได้</li>
+    <li>ควบคุม <strong>Model Provider, Agent Workflow</strong> ได้เต็มที่</li>
+    <li>ใช้ <strong>ChatGPT, Claude, Gemini, Kimi, Grok</strong> ที่ subscribe อยู่แล้ว</li>
+    <li><strong>ฟรี! Open Source!</strong> ไม่มี paywall</li>
+  </ul>
+</section>
+
+<!-- Slide 6: 3-Tier Architecture -->
+<section data-audio="audio/slide-06.ogg">
+  <h2>สถาปัตยกรรม 3 ระดับ</h2>
+  <p>เหมือนองค์กรที่มีพนักงานหลายระดับ:</p>
+  <div class="agent-card"><strong style="color:#FFD700;">1. Agents (ระดับผู้จัดการ)</strong><br/>
+  Sisyphus, Prometheus, Atlas, Hephaestus, Oracle, Metis, Momus — คิด วางแผน สั่งการ</div>
+  <div class="agent-card"><strong style="color:#87CEEB;">2. Core Agents (ระดับหัวหน้าทีม)</strong><br/>
+  core_research, core_explore, core_development — แบ่งประเภทงานย่อย</div>
+  <div class="agent-card"><strong style="color:#90EE90;">3. Tools (ระดับปฏิบัติการ)</strong><br/>
+  terminal, file, code_execution — ลงมือทำจริง</div>
+  <p style="font-size:0.75em; color:#aaa;">เราไม่ต้องเรียก Core หรือ Tools เอง — Agents ระดับสูงจะตัดสินใจให้อัตโนมัติ</p>
+</section>
+
+<!-- Slide 7: Main 4 Agents -->
+<section data-audio="audio/slide-07.ogg">
+  <h2>Agent หลักสี่ตัว</h2>
+  <table>
+    <thead><tr><th>Agent</th><th>Model</th><th>บทบาท</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Sisyphus</strong></td><td>Kimi K2.6</td><td>Agent เริ่มต้น งานเร็ว งานง่าย</td></tr>
+      <tr><td><strong>Prometheus</strong></td><td>Kimi K2.6</td><td>สถาปนิก — วางแผนก่อนลงมือ</td></tr>
+      <tr><td><strong>Atlas</strong></td><td>Kimi K2.6</td><td>ผู้ปฏิบัติงานตามแผน</td></tr>
+      <tr><td><strong>Hephaestus</strong></td><td>GPT 5.4</td><td>ผู้คิดลึก — reasoning ซับซ้อน</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.75em; margin-top:15px;">Kimi K2.6 = context ใหญ่ อ่านโค้ดยาว ทำงานเร็ว<br/>
+  GPT 5.4 = เหนือกว่าใน reasoning เชิงลึก</p>
+</section>
+
+<!-- Slide 8: Supporting 4 Agents -->
+<section data-audio="audio/slide-08.ogg">
+  <h2>Agent สนับสนุน อีกห้าตัว</h2>
+  <table>
+    <thead><tr><th>Agent</th><th>Model</th><th>บทบาท</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Oracle</strong></td><td>Kimi K2.6</td><td>ที่ปรึกษา architecture + debugging</td></tr>
+      <tr><td><strong>Metis</strong></td><td>Kimi K2.6</td><td>ที่ปรึกษาแผนงาน ช่วย Prometheus</td></tr>
+      <tr><td><strong>Momus</strong></td><td>Kimi K2.6</td><td>ผู้วิจารณ์ ตรวจสอบความถูกต้องแผน</td></tr>
+      <tr><td><strong>Explore</strong></td><td>GPT 5.4 Nano</td><td>สำรวจโค้ดเบสเร็ว ราคาถูก</td></tr>
+      <tr><td><strong>Librarian</strong></td><td>Kimi K2.5</td><td>ค้นหา docs, GitHub implementations</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.75em; margin-top:15px;">ไม่ต้องเรียกเอง — Agent หลักจะเรียกให้อัตโนมัติตามความจำเป็น</p>
+</section>
+
+<!-- Slide 9: Special 3 Agents -->
+<section data-audio="audio/slide-09.ogg">
+  <h2>Agent พิเศษ อีกสามตัว</h2>
+  <div class="agent-card">
+    <strong class="highlight-blue">Multimodal Looker</strong> — Kimi K2.6<br/>
+    เชี่ยวชาญวิเคราะห์ <strong>ภาพ, เสียง, วิดีโอ, เว็บ</strong><br/>
+    ดู screenshot UI → บอกว่าต้องแก้ CSS ตรงไหน
+  </div>
+  <div class="agent-card">
+    <strong class="highlight-blue">Sisyphus Junior</strong> — GPT 5.4 Mini<br/>
+    Agent เบาๆ สำหรับงานง่าย ไม่ต้องใช้ context ใหญ่
+  </div>
+  <div class="agent-card">
+    <strong class="highlight-blue">Code Reviewer</strong> — GPT 5.3 Codex<br/>
+    ปรึกษา code review โดยเฉพาะ | <strong style="color:#f44336;">Read-Only</strong><br/>
+    ตรวจสอบ quality, security, bugs, performance
+  </div>
+</section>
+
+<!-- Slide 10: Model Matching -->
+<section data-audio="audio/slide-10.ogg">
+  <h2>โมเดลและการจับคู่ Agent</h2>
+  <table>
+    <thead><tr><th>คุณสมบัติ Model</th><th>Agent ที่ใช้</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Kimi K2.6</strong> — Context ใหญ่, เร็ว</td><td>Sisyphus, Prometheus, Atlas, Oracle, Metis, Momus</td></tr>
+      <tr><td><strong>GPT 5.4</strong> — Reasoning ลึก</td><td>Hephaestus, Ultrabrain</td></tr>
+      <tr><td><strong>Kimi K2.5</strong> — อ่านเอกสารยาว</td><td>Librarian</td></tr>
+      <tr><td><strong>GPT Nano/Mini</strong> — เร็ว ถูก</td><td>Explore, Sisyphus Junior</td></tr>
+      <tr><td><strong>Codex</strong> — Fine-tune code review</td><td>Code Reviewer</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.75em; margin-top:15px;">แต่ละ Agent ใช้ model ที่เหมาะสมกับงานตัวเอง ทำให้ประสิทธิภาพสูงสุด</p>
+</section>
+
+<!-- Slide 11: Multimodal -->
+<section data-audio="audio/slide-11.ogg">
+  <h2>Multimodal รอบด้าน</h2>
+  <p style="font-size:0.85em;">Multimodal Looker ทำได้หมด:</p>
+  <ul style="font-size:0.8em;">
+    <li>🖼️ <strong>ภาพ</strong> — วิเคราะห์ screenshot UI แล้วบอกว่าต้องแก้ CSS ตรงไหน</li>
+    <li>🔊 <strong>เสียง</strong> — ฟังแล้วเขียน transcript หรือวิเคราะห์การบรรยาย</li>
+    <li>📹 <strong>วิดีโอ</strong> — ดู demo แล้วเขียนโค้ดตาม feature ที่เห็น</li>
+    <li>🌐 <strong>เว็บ</strong> — วิเคราะห์ความสวยงาม UI, โครงสร้าง HTML, responsive design</li>
+  </ul>
+  <p style="font-size:0.78em; margin-top:15px;">ส่ง screenshot ของ error → ให้ agent แก้ไขได้ทันที<br/>
+  ส่งวิดีโอสอนใช้งานจาก YouTube → agent สร้างโค้ดตามที่เห็น</p>
+</section>
+
+<!-- Slide 12: Code Reviewer -->
+<section data-audio="audio/slide-12.ogg">
+  <h2>Code Reviewer Agent</h2>
+  <p style="font-size:0.82em;">ใช้ <strong>GPT 5.3 Codex</strong> — Fine-tune มาสำหรับ code review โดยเฉพาะ</p>
+  <ul style="font-size:0.78em;">
+    <li>ตรวจสอบ <strong>code quality</strong> และมาตรฐาน</li>
+    <li>หาช่องโหว่ด้าน <strong>security</strong> — SQL injection, XSS, etc.</li>
+    <li>หา <strong>bugs</strong> ที่ซ่อนอยู่</li>
+    <li>Analyze <strong>performance issues</strong> — เช่น O(n²) loop ที่ไม่จำเป็น</li>
+  </ul>
+  <p style="font-size:0.85em; margin-top:15px;" class="highlight-red"><strong>🔒 Read-Only Agent</strong></p>
+  <p style="font-size:0.78em;">ดูได้ บอกได้ แต่ไม่สามารถแก้โค้ดหรือรันคำสั่ง terminal ได้<br/>
+  ทำให้การ review <strong>เป็นกลาง ปลอดภัย ไม่เกิด side effect</strong></p>
+</section>
+
+<!-- Slide 13: Golden Rule -->
+<section data-audio="audio/slide-13.ogg">
   <h2>กฎทอง</h2>
   <h1 style="text-align:center; color:#FFD700;">Agents > Core > Tools</h1>
-  <ul>
-    <li>อย่าเลือก <strong>Tools</strong> เอง</li>
-    <li>ให้ <strong>Agents</strong> ตัดสินใจสั่งการอัตโนมัติ</li>
+  <ul style="font-size:0.85em;">
+    <li>เปรียบเสมือน <strong>ผู้จัดการโครงการ</strong> → <strong>หัวหน้าทีม</strong> → <strong>พนักงานปฏิบัติการ</strong></li>
+    <li>อย่าเลือก <strong>Tools</strong> เองด้วยตรง</li>
+    <li>อย่าพยายามบังคับ <strong>Core Agents</strong></li>
+    <li>ให้ <strong>Agents ระดับสูง</strong> ตัดสินใจสั่งการอัตโนมัติ</li>
   </ul>
 </section>
 
-<section data-audio="audio/slide-05.ogg">
+<!-- Slide 14: Sisyphus -->
+<section data-audio="audio/slide-14.ogg">
   <h2>Sisyphus — ตัวเริ่มต้น</h2>
-  <p><strong>ใช้เมื่อ:</strong> งานง่าย แก้ไฟล์เดียว รู้ว่าต้องทำอะไร</p>
-  <ul>
+  <p style="font-size:0.85em;"><strong>Model:</strong> Kimi K2.6 | <strong>ใช้เมื่อ:</strong> งานง่าย แก้ไฟล์เดียว รู้ว่าต้องทำอะไร</p>
+  <ul style="font-size:0.78em;">
     <li>เปิด OpenCode TUI = Sisyphus อยู่แล้ว</li>
-    <li>พิมพ์คำสั่งตรงๆ ได้เลย</li>
+    <li>พิมพ์คำสั่งภาษาธรรมชาติได้เลย</li>
   </ul>
-  <p style="margin-top:20px;"><strong>ทางลัด:</strong> พิมพ์ <code>ultrawork</code> หรือ <code>ulw</code></p>
+  <p style="font-size:0.85em; margin-top:15px;"><strong>ทางลัด:</strong> <code>ultrawork</code> หรือ <code>ulw</code></p>
+  <p style="font-size:0.78em;">Sisyphus ทำงานอัตโนมัติจนเสร็จ ไม่ต้องคอยตอบคำถาม<br/>
+  เหมาะกับงานที่มั่นใจว่าจะไม่ผิดพลาดร้ายแรง</p>
 </section>
 
-<section data-audio="audio/slide-06.ogg">
+<!-- Slide 15: Prometheus -->
+<section data-audio="audio/slide-15.ogg">
   <h2>Prometheus — ผู้วางแผน</h2>
-  <p><strong>ใช้เมื่อ:</strong> งานใหญ่ ไม่แน่ใจ scope</p>
-  <ol>
-    <li>กด <kbd>Tab</kbd> ที่ prompt → เลือก Prometheus</li>
+  <p style="font-size:0.85em;"><strong>Model:</strong> Kimi K2.6 | <strong>ใช้เมื่อ:</strong> งานใหญ่ ไม่แน่ใจ scope</p>
+  <ol style="font-size:0.78em;">
+    <li>กด <kbd>Tab</kbd> → เลือก Prometheus</li>
     <li>ตอบคำถาม <strong>Interview</strong> กำหนดขอบเขต</li>
-    <li>อนุมัติแผนที่ agent สร้างให้</li>
-    <li>พิมพ์ <code>/start-work</code></li>
+    <li>Prometheus วิเคราะห์ + สร้างแผนงาน</li>
+    <li>อนุมัติแผน</li>
+    <li>พิมพ์ <code>/start-work</code> → ส่งให้ Atlas ทำ</li>
   </ol>
-  <p style="margin-top:15px; color:#87CEEB;">Prometheus จะส่งต่อให้ Atlas ลงมือทำ</p>
+  <p style="font-size:0.78em; margin-top:15px; color:#87CEEB;">ได้แผนที่ครอบคลุม ไม่ลืม edge case รู้ว่าต้องทำอะไรบ้างก่อนเริ่ม</p>
 </section>
 
-<section data-audio="audio/slide-07.ogg">
+<!-- Slide 16: Hephaestus -->
+<section data-audio="audio/slide-16.ogg">
   <h2>Hephaestus — ผู้คิดลึก</h2>
-  <p><strong>ใช้เมื่อ:</strong> Debug ลึก หรือ Research ข้ามหลายไฟล์</p>
-  <p><strong>สัญญาณที่ต้องเรียก:</strong></p>
-  <ul>
-    <li>Agent ตัวอื่นติดปัญหาไม่รู้สาเหตุ</li>
-    <li>ต้องค้นคว้า domain ที่ไม่คุ้นเคย</li>
-    <li>ต้อง redesign กระทบหลายส่วน</li>
+  <p style="font-size:0.85em;"><strong>Model:</strong> GPT 5.4 | <strong>ใช้เมื่อ:</strong> Debug ลึก / Research ข้ามหลายไฟล์</p>
+  <p style="font-size:0.8em;"><strong>สัญญาณที่ต้องเรียก:</strong></p>
+  <ul style="font-size:0.78em;">
+    <li>Agent ตัวอื่นวนเวียนไม่หาสาเหตุเจอ</li>
+    <li>ต้องค้นคว้า domain ที่ไม่คุ้นเคย (library ใหม่, architecture ซับซ้อน)</li>
+    <li>ต้อง redesign หรือ refactor กระทบหลายส่วน</li>
   </ul>
-  <p style="margin-top:15px;">วิธีเรียก: กด <kbd>Tab</kbd> → เลือก Hephaestus</p>
+  <p style="font-size:0.8em; margin-top:15px;">วิธีเรียก: กด <kbd>Tab</kbd> → เลือก Hephaestus</p>
 </section>
 
-<section data-audio="audio/slide-08.ogg">
+<!-- Slide 17: Decision Table -->
+<section data-audio="audio/slide-17.ogg">
   <h2>ตารางตัดสินใจ</h2>
   <table>
     <thead><tr><th>งาน</th><th>Agent ที่ใช้</th></tr></thead>
@@ -103,28 +276,23 @@
       <tr><td>Refactor ใหญ่</td><td><strong>Prometheus → Atlas → Hephaestus</strong></td></tr>
       <tr><td>ไม่รู้ต้องทำอะไร</td><td><strong>Prometheus (interview)</strong></td></tr>
       <tr><td>Debug ลึก / Research</td><td><strong>Hephaestus</strong></td></tr>
+      <tr><td>Code Review</td><td><strong>Code Reviewer</strong></td></tr>
+      <tr><td>วิเคราะห์ภาพ/วิดีโอ/เว็บ</td><td><strong>Multimodal Looker</strong></td></tr>
       <tr><td>ขี้เกียจอธิบาย</td><td><strong>ultrawork</strong></td></tr>
     </tbody>
   </table>
 </section>
 
-<section data-audio="audio/slide-09.ogg">
-  <h2>สิ่งไม่ควรทำ</h2>
-  <ul>
-    <li>❌ อย่าเริ่มที่ <strong>Atlas</strong> โดยตรง ถ้าไม่มีแผน</li>
-    <li>❌ ไม่ต้องเรียก <strong>Oracle</strong> เอง — Sisyphus จะเรียกให้อัตโนมัติ</li>
-    <li>❌ อย่าพยายามเลือก <strong>Core</strong> หรือ <strong>Tools</strong> เอง</li>
-  </ul>
-</section>
-
-<section data-audio="audio/slide-10.ogg">
-  <h1 style="text-align:center;">สรุปง่าย ๆ</h1>
-  <div style="text-align:center; margin-top:30px;">
-    <p>🔹 งานเล็ก → <strong>Sisyphus</strong> ตรงๆ</p>
-    <p>🔹 งานกลาง → <strong>Sisyphus + ultrawork</strong></p>
-    <p>🔹 งานใหญ่ → <strong>Prometheus → Atlas</strong></p>
-    <p>🔹 คิดลึก → เพิ่ม <strong>Hephaestus</strong></p>
-    <p style="margin-top:30px; color:#4CAF50; font-size:1.2em;">เลือกให้ถูก งานเสร็จไว ไม่เสียเวลา</p>
+<!-- Slide 18: Summary -->
+<section data-audio="audio/slide-18.ogg">
+  <h1 style="text-align:center;">สรุป</h1>
+  <div style="text-align:center; margin-top:20px; font-size:0.85em;">
+    <p>🔹 เลือก <strong>OpenCode</strong> เพราะเปิดกว้าง รองรับ model หลายตัว Agent orchestration เหนือชั้น</p>
+    <p>🔹 งานเล็ก → <strong>Sisyphus</strong> | งานกลาง → <strong>Sisyphus + ultrawork</strong></p>
+    <p>🔹 งานใหญ่ → <strong>Prometheus → Atlas</strong> | คิดลึก → <strong>Hephaestus</strong></p>
+    <p>🔹 Code Review → <strong>Code Reviewer</strong> | Multimodal → <strong>Multimodal Looker</strong></p>
+    <p style="margin-top:25px; color:#4CAF50; font-size:1.15em;">เลือก Agent ให้ถูกตัว งานเสร็จไว ไม่เสียเวลา</p>
+    <p style="font-size:0.75em; color:#888; margin-top:20px;">ขอบคุณที่รับชมและรับฟังจนจบครับ</p>
   </div>
 </section>
 
@@ -132,7 +300,7 @@
 </div>
 
 <div class="audio-bar">
-  <span class="slide-num">สไลด์ <span id="current">1</span> / 10</span>
+  <span class="slide-num">สไลด์ <span id="current">1</span> / 18</span>
   <button id="playBtn" onclick="toggleAudio()">▶ เล่นเสียงบรรยาย</button>
 </div>
 
